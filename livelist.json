@@ -1,8 +1,8 @@
 {
-  AvailableDevices: [
+  "AvailableDevices": [
   '1',
   '2'
   ],
-  ScanningComplete: '2/2',
-  ScanningState: 'InProgress / Complete'
+  "ScanningComplete": '2/2',
+  "ScanningState": 'InProgress / Complete'
 }

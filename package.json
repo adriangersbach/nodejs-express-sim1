@@ -1,14 +1,24 @@
 {
   "name": "nodejs-express-sim1",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple Node JS Simulation",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adriangersbach/nodejs-express-sim1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adriangersbach/nodejs-express-sim1/issues"
+  },
+  "homepage": "https://github.com/adriangersbach/nodejs-express-sim1#readme"
 }

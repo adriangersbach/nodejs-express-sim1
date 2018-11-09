@@ -1,5 +1,6 @@
 const express = require('express');
 const net = require('net');
+const fs = require('fs');
 
 const webserverhost = 'localhost';
 const webserverport = 80;
@@ -8,9 +9,19 @@ const webserver = express();
 const tcpserverhost = 'localhost';
 const tcpserverport = 3000;
 
+var filelivelist = fs.readFileSync("livelist.json");
+var jsonlivelist = JSON.parse(filelivelist);
+
 // host
 webserver.get('/', (req, res) => {
   res.send('use ' + webserverhost + ':' + webserverport + '/api/livelist');
+});
+
+// /api/livelist
+webserver.route('/api/livelist').get((req, res) => {
+  console.log('Call to: /api/livelist');
+  res.setHeader('Content-Type', 'application/json');
+  res.send(jsonlivelist);
 });
 
 webserver.listen(webserverport, webserverhost);

@@ -3,7 +3,7 @@ const net = require('net');
 const fs = require('fs');
 
 const webserverhost = 'localhost';
-const webserverport = 80;
+const webserverport = 8080;
 const webserver = express();
 
 const tcpserverhost = 'localhost';
@@ -21,7 +21,7 @@ webserver.get('/', (req, res) => {
 webserver.route('/api/livelist').get((req, res) => {
   console.log('Call to: /api/livelist');
   res.setHeader('Content-Type', 'application/json');
-  res.send(jsonlivelist);
+  res.send(JSON.stringify(jsonlivelist, null, 2));
 });
 
 webserver.listen(webserverport, webserverhost);
@@ -50,3 +50,4 @@ function tcpserverHandler(socket) {
 
 net.createServer(tcpserverHandler).listen(tcpserverport, tcpserverhost);
 console.log(`Running on ${tcpserverhost}:${tcpserverport}`);
+

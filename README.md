@@ -5,6 +5,9 @@ chmod +x filename.sh
 # Docker examples
 docker run -d -p 8081:8080 --restart unless-stopped --name sfg500-sim1 adriangersbach/nodejs-express-sim1
 
+# How to get bash into a running container in background mode
+docker exec -i -t conatiner-id /bin/bash #by ID
+
 service networking restart
 
 docker network rm <name>

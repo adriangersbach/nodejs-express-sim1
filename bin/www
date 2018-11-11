@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+ 
+var app = require('../app');
+var tcpserver = require('../server');
+ 
+const webserverhost = '0.0.0.0';
+const webserverport = 8080;
+ 
+app.listen(webserverport, webserverhost);
+console.log(`Running on http://${webserverhost}:${webserverport}`);
+
+
+const tcpserverhost = '0.0.0.0';
+const tcpserverport = 3000;
+
+tcpserver.listen(tcpserverport, tcpserverhost);
+console.log(`Running on ${tcpserverhost}:${tcpserverport}`);

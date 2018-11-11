@@ -1,29 +1,7 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+// Imports all the modules needed
 const net = require('net');
 
-const routes = require('./routes/index');
-
-const webserverhost = '0.0.0.0';
-const webserverport = 8080;
-
-const tcpserverhost = '0.0.0.0';
-const tcpserverport = 3000;
-
-var webserver = express();
-
-webserver.use(bodyParser.json({ type: 'application/json' }));
-webserver.use('/', routes);
-
-// catch 404 and forward to error handler
-webserver.use((req, res, next) => {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-
-webserver.listen(webserverport, webserverhost);
-console.log(`Running on http://${webserverhost}:${webserverport}`);
+var tcpserver = net.createServer(tcpserverHandler);
 
 // tcp server
 function tcpserverHandler(socket) {
@@ -46,6 +24,4 @@ function tcpserverHandler(socket) {
   });
 };
 
-net.createServer(tcpserverHandler).listen(tcpserverport, tcpserverhost);
-console.log(`Running on ${tcpserverhost}:${tcpserverport}`);
-
+module.exports = tcpserver;

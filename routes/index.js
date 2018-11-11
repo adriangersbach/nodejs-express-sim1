@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 
-const host = 'localhost';
+const host = '0.0.0.0';
 const port = 8080;
 
 function GetFileNameDeviceX(x) {
@@ -21,6 +21,10 @@ function FormatJSONContent(content) {
   return JSON.stringify(JSON.parse(content), null, 2);  
 }
 
+function FormatJSONContentFromError(err) {
+  return JSON.stringify(err, null, 2);  
+}
+
 // host
 router.get('/', (req, res) => {
   res.send('use ' + host + ':' + port + '/api/livelist');
@@ -36,7 +40,7 @@ router.route('/api/livelist').get((req, res) => {
   }
   catch (err) {
     res.status(400);
-    res.send(err);
+    res.send(FormatJSONContentFromError(err));
   }
 });
 
@@ -49,7 +53,7 @@ router.route('/api/livelist').patch((req, res) => {
   }
   catch (err) {
     res.status(400);
-    res.send(err);
+    res.send(FormatJSONContentFromError(err));
   }
 });
 
@@ -63,7 +67,7 @@ router.route('/api/device.de/sfg').get((req, res) => {
   }
   catch (err) {
     res.status(400);
-    res.send(err);
+    res.send(FormatJSONContentFromError(err));
   }
 });
 
@@ -76,7 +80,7 @@ router.route('/api/device.de/sfg').patch((req, res) => {
   }
   catch (err) {
     res.status(400);
-    res.send(err);
+    res.send(FormatJSONContentFromError(err));
   }
 });
 
@@ -91,7 +95,7 @@ router.route('/api/device.de/:x').get((req, res) => {
   }
   catch (err) {
     res.status(400);
-    res.send(err);
+    res.send(FormatJSONContentFromError(err));
   }
 });
 
@@ -105,7 +109,7 @@ router.route('/api/device.de/:x').patch((req, res) => {
   }
   catch (err) {
     res.status(400);
-    res.send(err);
+    res.send(FormatJSONContentFromError(err));
   }
 });
 
@@ -119,7 +123,7 @@ router.route('/api/device.de/:x').delete((req, res) => {
   }
   catch (err) {
     res.status(400);
-    res.send(err);
+    res.send(FormatJSONContentFromError(err));
   }
 });
 
@@ -135,7 +139,7 @@ router.route('/api/device.de/:x/:y').get((req, res) => {
   }
   catch (err) {
     res.status(400);
-    res.send(err);
+    res.send(FormatJSONContentFromError(err));
   }
 });
 
@@ -150,7 +154,7 @@ router.route('/api/device.de/:x/:y').patch((req, res) => {
   }
   catch (err) {
     res.status(400);
-    res.send(err);
+    res.send(FormatJSONContentFromError(err));
   }
 });
 
@@ -165,7 +169,7 @@ router.route('/api/device.de/:x/:y').delete((req, res) => {
   }
   catch (err) {
     res.status(400);
-    res.send(err);
+    res.send(FormatJSONContentFromError(err));
   }
 });
 
@@ -182,7 +186,7 @@ router.route('/api/device.de/:x/:y/:z').get((req, res) => {
   }
   catch (err) {
     res.status(400);
-    res.send(err);
+    res.send(FormatJSONContentFromError(err));
   }
 });
 
@@ -198,7 +202,7 @@ router.route('/api/device.de/:x/:y/:z').patch((req, res) => {
   }
   catch (err) {
     res.status(400);
-    res.send(err);
+    res.send(FormatJSONContentFromError(err));
   }
 });
 
@@ -214,7 +218,7 @@ router.route('/api/device.de/:x/:y/:z').delete((req, res) => {
   }
   catch (err) {
     res.status(400);
-    res.send(err);
+    res.send(FormatJSONContentFromError(err));
   }
 });
 

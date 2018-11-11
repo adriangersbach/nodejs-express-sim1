@@ -19,9 +19,46 @@ webserver.get('/', (req, res) => {
 
 // /api/livelist
 webserver.route('/api/livelist').get((req, res) => {
-  console.log('Call to: /api/livelist');
+  console.log('Call to: get /api/livelist');
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.stringify(jsonlivelist, null, 2));
+});
+webserver.route('/api/livelist').patch((req, res) => {
+  console.log('Call to: patch /api/livelist');
+  res.setHeader('Content-Type', 'application/json');
+  res.send("{}");
+});
+
+// /api/device/sfg
+webserver.route('/api/device.de/sfg').get((req, res) => {
+  console.log('Call to: get /api/device.de/sfg');
+  res.setHeader('Content-Type', 'application/json');
+  res.send("{}");
+});
+webserver.route('/api/device.de/sfg').patch((req, res) => {
+  console.log('Call to: patch /api/device.de/sfg');
+  res.setHeader('Content-Type', 'application/json');
+  res.send("{}");
+});
+
+// /api/device/x
+webserver.route('/api/device.de/:x').get((req, res) => {
+  var x = req.params.x;
+  console.log('Call to: get /api/device.de/', x);
+  res.setHeader('Content-Type', 'application/json');
+  res.send(jsondevices.devices[x-1]);
+});
+webserver.route('/api/device.de/:x').patch((req, res) => {
+  var x = req.params.x;
+  console.log('Call to: patch /api/device.de/', x);
+  res.setHeader('Content-Type', 'application/json');
+  res.send("{}");
+});
+webserver.route('/api/device.de/:x').delete((req, res) => {
+  var x = req.params.x;
+  console.log('Call to: delete /api/device.de/', x);
+  res.setHeader('Content-Type', 'application/json');
+  res.send("{}");
 });
 
 webserver.listen(webserverport, webserverhost);

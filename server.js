@@ -4,10 +4,10 @@ const net = require('net');
 
 const routes = require('./routes/index');
 
-const webserverhost = 'localhost';
+const webserverhost = '0.0.0.0';
 const webserverport = 8080;
 
-const tcpserverhost = 'localhost';
+const tcpserverhost = '0.0.0.0';
 const tcpserverport = 3000;
 
 var webserver = express();
